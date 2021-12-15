@@ -17,18 +17,11 @@ for pdf in pdfs:
 
 try:
   name = sys.argv[1]
+  if not name.endswith(".pdf"):
+    name += ".pdf"
 except:
   name = "merged.pdf"
 
 m.write(name)
-
-writer = PdfFileWriter()
-
-for pdf in pdfs:
-  reader = PdfFileReader(pdf)
-  for i in range(reader.numPages):
-    page = reader.getPage(i)
-    page.compressContentStreams()
-    writer.addPage(page)
 
 m.close()
