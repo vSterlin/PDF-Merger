@@ -4,8 +4,8 @@ from PyPDF2 import PdfFileMerger, PdfFileWriter, PdfFileReader
 
 
 files = os.listdir()
-
 pdfs = list(filter(lambda f: f.endswith(".pdf"), files))
+pdfs.sort()
 
 if len(pdfs) == 0:
   raise Exception("No pdf files in this directory")
